@@ -1,26 +1,29 @@
 #!/usr/bin/python3
+"""
+Main file for testing
+"""
+
+
 def minOperations(n):
-    """
-    Calculates the fewest number of operations needed to result in
-    exactly n H characters in the file.
-    
-    Args:
-        n: target number of H characters
-    
-    Returns:
-        Minimum number of operations, or 0 if impossible
-    """
+    """calculates the fewest number of operations needed
+    to result in exactly n H characters in the file"""
     if n <= 1:
         return 0
-    
-    operations = 0
-    divisor = 2
-    
-    # Find all prime factors and sum them
-    while n > 1:
-        while n % divisor == 0:
-            operations += divisor
-            n = n // divisor
-        divisor += 1
-    
-    return operations
+    # copy all means copy = character
+    # paste means character += copy
+    character = 1
+    copy = character
+    min_ops = 0
+    while character < n:
+        # if n is divisible by character, then double it
+        if n % character == 0:
+            # copy all and paste is 2 ops
+            copy = character
+            character = 2 * copy
+            min_ops += 2
+        else:
+            # otherwise add it +1
+            # paste
+            character += copy
+            min_ops += 1
+    return min_ops
