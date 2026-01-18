@@ -20,4 +20,4 @@ The solution is based on prime factorization. To get n H's optimally, we need to
 - `0-minoperations.py`: Contains the `minOperations` function
 
 ## Author
-Nkem Jeferson Achia
+Nkem Jeferson Achia, student at ALU
